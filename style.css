@@ -17,12 +17,12 @@ body {
     font-family: 'Outfit', sans-serif;
     background-color: var(--bg-dark);
     color: var(--text-main);
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    /* No scroll */
+    align-items: flex-start;
+    padding: 1rem 0;
+    overflow-y: auto;
 }
 
 .background-animate {
@@ -169,12 +169,64 @@ input[type=number] {
 }
 
 @media (max-width: 480px) {
-    .compact-grid {
-        grid-template-columns: 1fr;
-        gap: 0.5rem;
+    .container.compact-mode {
+        padding: 0.5rem;
+    }
+
+    .mini-header {
+        display: none; /* Hide title on mobile to save space */
+    }
+
+    .card.compact-card {
+        padding: 0; /* Remove internal padding, move to children to handle sticky */
+        overflow: hidden; /* Ensure border radius clips content */
+    }
+
+    .top-result {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(20, 25, 45, 0.98);
+        padding: 1rem 1rem 0.75rem 1rem;
+        margin: 0;
+        border-bottom: 1px solid var(--glass-border);
     }
 
     .emi-red-bold {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
+
+    .compact-grid {
+        padding: 1rem; /* Restore padding for inputs */
+        grid-template-columns: 1fr 1fr; /* Try 2 columns for smaller inputs? */
+        gap: 0.75rem 0.5rem; /* Gap between rows and columns */
+    }
+
+    /* Make text inputs span full width, but number inputs can be 2-col */
+    .input-section-compact {
+        grid-column: span 2;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+    }
+    
+    .input-section-compact h3 {
+        grid-column: span 2;
+        margin-top: 0.5rem;
+        margin-bottom: 0.25rem;
+        font-size: 0.85rem;
+    }
+
+    .dense-input-group {
+        margin-bottom: 0;
+    }
+
+    .fixed-info-bar {
+        padding: 0.75rem 1rem;
+        margin-top: 0;
+        background: var(--bg-dark);
+    }
+    
+    /* Specific overrides for Full Width inputs if needed */
+    /* Net Salary & Rent might need full width? Let's check visually */
 }

@@ -89,11 +89,7 @@
                             <label for="balance-salary">BALANCE AFTER EMI</label>
                             <input type="text" id="balance-salary" readonly title="Net Salary - EMI">
                         </div>
-                        <div class="dense-input-group">
-                            <label for="final-balance">BALANCE</label>
-                            <input type="text" id="final-balance" readonly
-                                title="Balance After Rent - Balance After EMI">
-                        </div>
+
                     </div>
 
                     <!-- Rent Section -->
@@ -117,6 +113,17 @@
                         </div>
                     </div>
 
+                    <!-- Final Balance Section -->
+                    <div class="input-section-compact">
+                        <div class="dense-input-group" style="grid-column: span 2;">
+                            <label for="final-balance" style="color: var(--text-main); font-weight: bold;">FINAL
+                                BALANCE</label>
+                            <input type="text" id="final-balance" readonly
+                                title="Balance After Rent - Balance After EMI"
+                                style="border-color: var(--text-main); font-weight: bold;">
+                        </div>
+                    </div>
+
 
                 </div>
 
@@ -133,7 +140,7 @@
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/housing/service-worker.js')
+                navigator.serviceWorker.register('/housing-emi/service-worker.js')
                     .then(registration => {
                         console.log('Service Worker registered successfully:', registration.scope);
                     })

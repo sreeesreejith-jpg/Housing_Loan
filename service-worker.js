@@ -1,12 +1,12 @@
 const CACHE_NAME = 'housing-emi-v1';
 const urlsToCache = [
-    '/housing/',
-    '/housing/index.html',
-    '/housing/style.css',
-    '/housing/script.js',
-    '/housing/manifest.json',
-    '/housing/icon-192.png',
-    '/housing/icon-512.png'
+    './',
+    './index.html',
+    './style.css',
+    './script.js',
+    './manifest.json',
+    './icon-192.png',
+    './icon-512.png'
 ];
 
 // Install event - cache resources
